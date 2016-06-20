@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="ftw.collectionblock">
+
+    <browser:resourceDirectory
+        name="ftw.collectionblock"
+        directory="resources"
+        />
+
+</configure>
