@@ -1,8 +1,14 @@
 ftw.collectionblock
 ###################
 
-TODO: Describe the functionality of this add-on for Plone 4.3.x and how
-to use it as an editor.
+``ftw.collectionblock`` works exactly the same way as a Plone Collection, since it uses the same ICollection behavior.
+
+The differences:
+
+1. The collection block is shown as a Block with a simplified default view.
+2. Only one detail view the `listing_view` is implemented. If you need more it's on you :-)
+3. RSS is enabled by default, it just needs to be enabled globally, since it respects the ISyndication settings.
+4. The collectionblock has its own permission
 
 
 Development
