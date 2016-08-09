@@ -1,6 +1,9 @@
 ftw.collectionblock
 ###################
 
+*This package is an addon for `ftw.simplelayout <http://github.com/4teamwork/ftw.simplelayout>`_. Please make sure you
+already installed `ftw.simplelayout` on your plone site before installing this addon.*
+
 ``ftw.collectionblock`` works exactly the same way as a Plone Collection, since it uses the same ICollection behavior.
 
 The differences:
