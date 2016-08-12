@@ -135,3 +135,24 @@ class TestAddCollectionBlock(FunctionalTestCase):
         settings.allowed = True
         settings.default_enabled = True
         transaction.commit()
+
+    @browsing
+    def test_block_amount_limit(self, browser):
+        """
+        This test makes sure that the collection block only renders
+        the amount of items configured on the block.
+        """
+        create(Builder('sl content page').titled(u'Page 2'))
+        create(Builder('sl content page').titled(u'Page 3'))
+
+        create(Builder('sl collectionblock')
+               .titled(u'A collectionblock')
+               .within(self.page)
+               .having(block_amount=2)
+               .with_default_query())
+
+        browser.login().visit(self.page)
+        self.assertEquals(
+            2,
+            len(browser.css('.ftw-collectionblock-collectionblock h3'))
+        )

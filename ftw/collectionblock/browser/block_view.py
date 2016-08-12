@@ -24,6 +24,8 @@ class CollectionBlockView(BaseBlock):
         return self.plone_view.toLocalizedTime(time, long_format, time_only)
 
     def block_results(self):
+        if self.context.block_amount > 0:
+            return self.context.results(b_size=self.context.block_amount)
         return self.context.results()
 
     def get_author(self, item):
