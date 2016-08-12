@@ -5,6 +5,9 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
+- Block is no longer searchable and will no longer be
+  included in the navigation. [mbaechtold]
+
 - Respect the block amount limit when rendering the items
   in the block. [mbaechtold]
 
