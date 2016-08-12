@@ -5,6 +5,9 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
+- Respect the block amount limit when rendering the items
+  in the block. [mbaechtold]
+
 - Add German translation. [mbaechtold]
 
 
