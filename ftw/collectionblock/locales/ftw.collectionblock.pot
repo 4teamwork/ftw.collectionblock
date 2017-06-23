@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-06-23 11:31+0000\n"
+"POT-Creation-Date: 2017-06-27 15:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,10 +15,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 
 #: ./ftw/collectionblock/profiles/default/types/ftw.collectionblock.CollectionBlock.xml
-msgid "Build complex queries with easy inside a simplelayout block."
-msgstr ""
-
-#: ./ftw/collectionblock/profiles/default/types/ftw.collectionblock.CollectionBlock.xml
 msgid "Collection block"
 msgstr ""
 
@@ -26,11 +22,16 @@ msgstr ""
 msgid "Collection block (add-on for ftw.simplelayout)"
 msgstr ""
 
+#: ./ftw/collectionblock/profiles/default/types/ftw.collectionblock.CollectionBlock.xml
+#: ./ftw/collectionblock/upgrades/20170627101940_update_description_text/types/ftw.collectionblock.CollectionBlock.xml
+msgid "Easily build complex queries inside a simplelayout block."
+msgstr ""
+
 #: ./ftw/collectionblock/browser/templates/block_view.pt:13
 msgid "No content available"
 msgstr ""
 
-#: ./ftw/collectionblock/browser/templates/block_view.pt:50
+#: ./ftw/collectionblock/browser/templates/block_view.pt:51
 msgid "Subscribe to the RSS feed"
 msgstr ""
 
@@ -74,8 +75,8 @@ msgid "label_show_rss_link"
 msgstr ""
 
 #. Default: "More"
-#: ./ftw/collectionblock/browser/block_view.py:49
-#: ./ftw/collectionblock/browser/templates/block_view.pt:44
+#: ./ftw/collectionblock/browser/block_view.py:51
+#: ./ftw/collectionblock/browser/templates/block_view.pt:45
 msgid "more_link_label"
 msgstr ""
 

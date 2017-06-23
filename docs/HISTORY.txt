@@ -5,6 +5,8 @@ Changelog
 1.0.5 (unreleased)
 ------------------
 
+- Improve german translations [raphael-s]
+
 - Add setting to hide "more" button [raphael-s]
 
 
