@@ -58,6 +58,7 @@ class CollectionBlockView(BaseBlock):
             'more_link_url': more_link_url,
             'more_link_label': more_link_label,
             'rss_link_url': rss_link_url or '',
+            'show_more_link': self.context.show_more_link,
         }
 
         return info
