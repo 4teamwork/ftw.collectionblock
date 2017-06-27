@@ -6,7 +6,7 @@
 
     <!-- Basic metadata -->
     <property name="title" i18n:translate="">Collection block</property>
-    <property name="description" i18n:translate="">Build complex queries with easy inside a simplelayout block.</property>
+    <property name="description" i18n:translate="">Easily build complex queries inside a simplelayout block.</property>
     <property name="icon_expr" />
     <property name="allow_discussion">False</property>
     <property name="global_allow">False</property>
