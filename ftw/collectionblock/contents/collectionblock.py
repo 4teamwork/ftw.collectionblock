@@ -44,6 +44,11 @@ class ICollectionBlockSchema(model.Schema):
         default=False,
     )
 
+    show_more_link = schema.Bool(
+        title=_(u'label_show_more_link', default=u'Show "more" link'),
+        default=True,
+    )
+
     more_link_label = schema.TextLine(
         title=_(u'label_more_link_label',
                 default=u'Label for the "more" link'),
