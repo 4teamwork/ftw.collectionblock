@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.6 (unreleased)
+1.0.6 (2018-09-27)
 ------------------
 
 - Fix initilize the querywidget for the add/edit form. [busykoala]
