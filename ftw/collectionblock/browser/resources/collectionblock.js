@@ -4,6 +4,7 @@
 
   $(function() {
     $(document).on("onLoad", ".overlay", function() {
+      $.querywidget.initialized = false;
       $.querywidget.init();
 
       // We need two keep two fields for each sorting field ('#sort_on',
