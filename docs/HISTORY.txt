@@ -5,7 +5,7 @@ Changelog
 1.0.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix initilize the querywidget for the add/edit form. [busykoala]
 
 
 1.0.5 (2017-06-27)
