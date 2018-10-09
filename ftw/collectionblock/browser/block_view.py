@@ -1,8 +1,11 @@
+from Acquisition import aq_inner
+from Products.CMFPlone.interfaces.syndication import IFeedSettings
+from Products.CMFPlone.utils import safe_callable
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.collectionblock import _
 from ftw.collectionblock import utils
 from ftw.simplelayout.browser.blocks.base import BaseBlock
-from Products.CMFPlone.interfaces.syndication import IFeedSettings
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from plone.app.contenttypes.behaviors.collection import ICollection
 from zope.component import getMultiAdapter
 from zope.i18n import translate
 
@@ -12,6 +15,8 @@ class CollectionBlockView(BaseBlock):
     plone.app.contenttypes.browser.folder.FolderView"""
 
     template = ViewPageTemplateFile('templates/block_view.pt')
+
+    _pas_member = None
 
     def __init__(self, context, request):
         super(CollectionBlockView, self).__init__(context, request)
@@ -62,6 +67,52 @@ class CollectionBlockView(BaseBlock):
         }
 
         return info
+
+    def tabular_fields(self):
+        """Returns a list of all metadata fields from the catalog that were
+           selected.
+        """
+        context = aq_inner(self.context)
+        fields = ICollection(context).selectedViewFields()
+        fields = [field[0] for field in fields]
+        return fields
+
+    def tabular_fielddata(self, item, fieldname):
+        value = getattr(item, fieldname, '')
+        if safe_callable(value):
+            value = value()
+        if fieldname in [
+                'CreationDate',
+                'ModificationDate',
+                'Date',
+                'EffectiveDate',
+                'ExpirationDate',
+                'effective',
+                'expires',
+                'start',
+                'end',
+                'created',
+                'modified',
+                'last_comment_date']:
+            value = self.toLocalizedTime(value, long_format=1)
+
+        return {
+            # 'title': _(fieldname, default=fieldname),
+            'value': value
+        }
+
+    @property
+    def pas_member(self):
+        if not self._pas_member:
+            self._pas_member = getMultiAdapter(
+                (self.context, self.request),
+                name=u'pas_member'
+            )
+        return self._pas_member
+
+    @property
+    def navigation_root_url(self):
+        return self.portal_state.navigation_root_url()
 
     @property
     def rss_enabled(self):
