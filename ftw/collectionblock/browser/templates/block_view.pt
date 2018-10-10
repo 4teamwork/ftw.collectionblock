@@ -48,6 +48,7 @@
                                 </td>
                                 <td tal:condition="python:field == 'Title'">
                                     <a tal:condition="python:item_type == 'File'"
+                                       i18n:attributes="title"
                                        tal:attributes="href item_url;
                                                        class string:$item_type_class $item_wf_state_class;
                                                        title item_type">
@@ -57,14 +58,15 @@
                                     <a tal:attributes="href item_url;
                                                        class string:$item_type_class $item_wf_state_class;
                                                        title item_type"
-                                       tal:content="item_title">Item Title</a>
+                                       tal:content="item_title" />
                                 </td>
                                 <td tal:condition="python:field == 'Creator'"
+                                    i18n:attributes="creator"
                                     tal:define="author python:view.pas_member.info(item_creator);
                                     name python:author['fullname'] or author['username']">
                                     <a tal:condition="author"
                                        tal:attributes="href string:${view/navigation_root_url}/author/${item_creator}"
-                                       tal:content="name">Jos Henken</a>
+                                       tal:content="name" />
                                 </td>
                             </tal:block>
 
