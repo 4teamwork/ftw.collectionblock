@@ -14,10 +14,10 @@
         <p tal:condition="not: items"
             i18n:translate="">No content available</p>
 
-        <table class="listing">
+        <table class="listing sortable">
             <thead>
                 <tr>
-                    <th class="nosort"
+                    <td i18n:domain="plone"
                         i18n:translate=""
                         tal:repeat="field view/tabular_fields"
                         tal:content="field" />

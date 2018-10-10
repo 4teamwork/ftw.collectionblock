@@ -97,7 +97,7 @@ class CollectionBlockView(BaseBlock):
             value = self.toLocalizedTime(value, long_format=1)
 
         return {
-            # 'title': _(fieldname, default=fieldname),
+            'title': PMF(fieldname),
             'value': value
         }
 
