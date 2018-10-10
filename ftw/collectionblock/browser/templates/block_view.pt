@@ -49,13 +49,13 @@
                                 <td tal:condition="python:field == 'Title'">
                                     <a tal:condition="python:item_type == 'File'"
                                        tal:attributes="href item_url;
-                                                       class string:$item_type_class $item_wf_state_class url;
+                                                       class string:$item_type_class $item_wf_state_class;
                                                        title item_type">
                                         <img class="mime-icon"
                                              tal:attributes="src item/MimeTypeIcon">
                                     </a>
                                     <a tal:attributes="href item_url;
-                                                       class string:$item_type_class $item_wf_state_class url;
+                                                       class string:$item_type_class $item_wf_state_class;
                                                        title item_type"
                                        tal:content="item_title">Item Title</a>
                                 </td>

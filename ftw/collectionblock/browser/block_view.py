@@ -3,6 +3,7 @@ from Products.CMFPlone.interfaces.syndication import IFeedSettings
 from Products.CMFPlone.utils import safe_callable
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.collectionblock import _
+from plone.app.collection import PloneMessageFactory as PMF
 from ftw.collectionblock import utils
 from ftw.simplelayout.browser.blocks.base import BaseBlock
 from plone.app.contenttypes.behaviors.collection import ICollection
