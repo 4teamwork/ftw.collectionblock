@@ -5,7 +5,7 @@ Changelog
 1.0.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change list layout to table layout. [busykoala]
 
 
 1.0.6 (2018-09-27)
