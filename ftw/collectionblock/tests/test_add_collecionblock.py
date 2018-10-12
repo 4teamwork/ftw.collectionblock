@@ -78,7 +78,13 @@ class TestAddCollectionBlock(FunctionalTestCase):
         self.assertEquals(
             '{0}/listing_view'.format(collectionblock.absolute_url()),
             browser.url)
-        self.assertEquals(1, len(browser.css('.entries article')))
+            
+        self.assertEquals(
+            [{'Title': 'Test Page',
+              'Creator': 'test-user',
+              'Type': 'ContentPage',
+              'ModificationDate': browser.css('tbody tr td')[3].text}],
+            browser.css('table.sortable').first.dicts())
 
     @browsing
     def test_custom_more_label(self, browser):
