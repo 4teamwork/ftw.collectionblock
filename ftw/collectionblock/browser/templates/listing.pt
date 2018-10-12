@@ -24,15 +24,14 @@
 
       <div metal:use-macro="context/batch_macros/macros/navigation" />
       <div class="has-table">
-        <table class="listing"
+        <table class="listing sortable"
             summary="Content listing"
             i18n:attributes="summary summary_content_listing;">
           <thead>
             <tr>
-              <th class="nosort"
-                  i18n:translate=""
+              <td i18n:translate=""
                   tal:repeat="field view/tabular_fields"
-                  tal:content="field">Field name</th>
+                  tal:content="field">Field name</td>
             </tr>
           </thead>
           <tbody>
@@ -43,6 +42,9 @@
                                      item_type item/PortalType;
                                      item_type_class python:'contenttype-' + view.normalizeString(item_type);
                                      item_wf_state item/review_state;
+                                     item_modified item/ModificationDate;
+                                     item_created item/CreationDate;
+                                     item_icon item/getIcon;
                                      item_wf_state_class python:'state-' + view.normalizeString(item_wf_state);
                                      item_creator item/Creator;
                                      item_link python:item_type in view.use_view_action and item_url+'/view' or item_url">
