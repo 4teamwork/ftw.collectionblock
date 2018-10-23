@@ -27,18 +27,13 @@ msgstr "Kollektions-Block (Add-On für ftw.simplelayout)"
 msgid "Easily build complex queries inside a simplelayout block."
 msgstr "Auf einfache Art komplexe Abfragen in einem Simplelayout Block erstellen."
 
-#: ./ftw/collectionblock/browser/templates/block_view.pt:13
+#: ./ftw/collectionblock/browser/templates/block_view.pt:14
 msgid "No content available"
 msgstr "Kein Inhalt vorhanden"
 
-#: ./ftw/collectionblock/browser/templates/block_view.pt:51
+#: ./ftw/collectionblock/browser/templates/block_view.pt:92
 msgid "Subscribe to the RSS feed"
 msgstr "RSS-Feed abonnieren"
-
-#. Default: "by ${author}"
-#: ./ftw/collectionblock/browser/templates/block_view.pt:25
-msgid "collection_listing_author_label"
-msgstr "von ${author}"
 
 #. Default: "Show title"
 #: ./ftw/collectionblock/contents/collectionblock.py:29
@@ -75,8 +70,8 @@ msgid "label_show_rss_link"
 msgstr "Link zum RSS-Feed"
 
 #. Default: "More"
-#: ./ftw/collectionblock/browser/block_view.py:51
-#: ./ftw/collectionblock/browser/templates/block_view.pt:45
+#: ./ftw/collectionblock/browser/block_view.py:57
+#: ./ftw/collectionblock/browser/templates/block_view.pt:86
 msgid "more_link_label"
 msgstr "Mehr"
 

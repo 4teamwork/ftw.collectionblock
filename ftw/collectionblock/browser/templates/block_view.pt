@@ -63,7 +63,7 @@
                                 <td tal:condition="python:field == 'Creator'"
                                     i18n:attributes="creator"
                                     tal:define="author python:view.pas_member.info(item_creator);
-                                    name python:author['fullname'] or author['username']">
+                                                name python:author['fullname'] or author['username']">
                                     <a tal:condition="author"
                                        tal:attributes="href string:${view/navigation_root_url}/author/${item_creator}"
                                        tal:content="name" />
@@ -77,10 +77,10 @@
         </table>
 
         <tal:footer tal:define="more_link_url block_info/more_link_url;
-            more_link_label block_info/more_link_label;
-            rss_url block_info/rss_link_url;
-            show_more_link block_info/show_more_link"
-            tal:condition="items">
+                                more_link_label block_info/more_link_label;
+                                rss_url block_info/rss_link_url;
+                                show_more_link block_info/show_more_link"
+                    tal:condition="items">
             <div class="collection-footer"
                 tal:condition="python: more_link_url or rss_url">
                 <a class="collection-more"
