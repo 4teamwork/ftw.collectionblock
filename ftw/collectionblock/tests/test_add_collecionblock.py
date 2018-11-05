@@ -1,10 +1,10 @@
+from Products.CMFPlone.interfaces.syndication import ISiteSyndicationSettings
 from ftw.builder import Builder
 from ftw.builder import create
 from ftw.collectionblock.tests import FunctionalTestCase
 from ftw.testbrowser import browsing
 from ftw.testbrowser.pages import factoriesmenu
 from plone.registry.interfaces import IRegistry
-from Products.CMFPlone.interfaces.syndication import ISiteSyndicationSettings
 from zope.component import getUtility
 import transaction
 
@@ -15,13 +15,12 @@ class TestAddCollectionBlock(FunctionalTestCase):
         super(TestAddCollectionBlock, self).setUp()
         self.grant('Manager')
 
-        self.page = create(Builder('sl content page').titled(u'A page'))
+        self.page = create(Builder('sl content page').titled(u'Test Page'))
 
     @browsing
     def test_add_collection_block(self, browser):
         browser.login().visit(self.page)
         factoriesmenu.add('Collection block')
-
         title = u'A collection block'
         browser.fill({'Title': title, 'Show title': True})
         browser.find_button_by_label('Save').click()
@@ -60,15 +59,13 @@ class TestAddCollectionBlock(FunctionalTestCase):
                .with_default_query())
 
         # The default query shows all Simplelayout Contentpages
-
         browser.login().visit(self.page)
         self.assertEquals(
             1,
-            len(browser.css('.ftw-collectionblock-collectionblock h3')))
-
+            len(browser.css('.odd')))
         self.assertEquals(
             self.page.Title(),
-            browser.css('.ftw-collectionblock-collectionblock h3').first.text)
+            browser.css('.documentFirstHeading').first.text)
 
     @browsing
     def test_detail_view_on_collectionblock(self, browser):
@@ -78,11 +75,16 @@ class TestAddCollectionBlock(FunctionalTestCase):
                                  .with_default_query())
         browser.login().visit(self.page)
         browser.css('.collection-more').first.click()
-
         self.assertEquals(
             '{0}/listing_view'.format(collectionblock.absolute_url()),
             browser.url)
-        self.assertEquals(1, len(browser.css('.entries article')))
+            
+        self.assertEquals(
+            [{'Title': 'Test Page',
+              'Creator': 'test-user',
+              'Type': 'ContentPage',
+              'ModificationDate': browser.css('tbody tr td')[3].text}],
+            browser.css('table.sortable').first.dicts())
 
     @browsing
     def test_custom_more_label(self, browser):
@@ -153,6 +155,30 @@ class TestAddCollectionBlock(FunctionalTestCase):
 
         browser.login().visit(self.page)
         self.assertEquals(
-            2,
-            len(browser.css('.ftw-collectionblock-collectionblock h3'))
+            1,
+            len(browser.css('.even'))
         )
+
+    @browsing
+    def test_is_table(self, browser):
+        create(Builder('sl content page').titled(u'Page 2'))
+        create(Builder('sl content page').titled(u'Page 3'))
+
+        create(Builder('sl collectionblock')
+               .titled(u'A collectionblock')
+               .within(self.page)
+               .having(block_amount=2)
+               .with_default_query())
+
+        browser.login().visit(self.page)
+
+        self.assertEquals(
+            [{'Title': 'Test Page',
+              'Creator': 'test-user',
+              'Type': 'ContentPage',
+              'ModificationDate': browser.css('tbody tr td')[3].text},
+             {'Title': 'Page 2',
+              'Creator': 'test-user',
+              'Type': 'ContentPage',
+              'ModificationDate': browser.css('tbody tr td')[3].text}],
+            browser.css('table.sortable').first.dicts())
