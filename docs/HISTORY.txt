@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.7 (unreleased)
+1.0.7 (2018-11-05)
 ------------------
 
 - Change list layout to table layout. [busykoala]
