@@ -57,7 +57,8 @@
                                     </a>
                                     <a tal:attributes="href item_url;
                                                        class string:$item_type_class $item_wf_state_class;
-                                                       title item_type"
+                                                       title item_type;
+                                                       target python:view.get_title_link_target(item)"
                                        tal:content="item_title" />
                                 </td>
                                 <td tal:condition="python:field == 'Creator'"

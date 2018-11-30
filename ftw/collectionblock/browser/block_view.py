@@ -34,6 +34,13 @@ class CollectionBlockView(BaseBlock):
             return self.context.results(b_size=self.context.block_amount)
         return self.context.results()
 
+    def get_title_link_target(self, item):
+        """This method may return a target attribute value (e.g. "_blank").
+        It can be customized by subclasses.
+        The "item" is a content listing object wrapper item.
+        """
+        return None
+
     def get_author(self, item):
         author = ''
         if utils.can_view_about():
