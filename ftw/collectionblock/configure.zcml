@@ -46,6 +46,11 @@
         for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
         />
 
+    <profilehook:hook
+        profile="ftw.collectionblock:uninstall"
+        handler=".hooks.uninstalled"
+        />
+
     <include package="ftw.upgrade" file="meta.zcml" />
 
      <upgrade-step:directory
