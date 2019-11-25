@@ -49,6 +49,7 @@ setup(
     zip_safe=False,
 
     install_requires=[
+        'ftw.profilehook',
         'ftw.simplelayout [contenttypes]',
         'ftw.upgrade',
         'Plone',
