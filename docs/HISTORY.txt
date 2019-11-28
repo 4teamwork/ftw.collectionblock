@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.1 (unreleased)
+1.2.1 (2019-11-28)
 ------------------
 
 - Use unittest instead of unittest2. [jone]
