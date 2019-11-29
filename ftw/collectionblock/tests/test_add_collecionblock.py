@@ -1,7 +1,9 @@
 from Products.CMFPlone.interfaces.syndication import ISiteSyndicationSettings
+from datetime import datetime
 from ftw.builder import Builder
 from ftw.builder import create
 from ftw.collectionblock.tests import FunctionalTestCase
+from ftw.testing import freeze
 from ftw.testbrowser import browsing
 from ftw.testbrowser.pages import factoriesmenu
 from plone.registry.interfaces import IRegistry
@@ -78,7 +80,7 @@ class TestAddCollectionBlock(FunctionalTestCase):
         self.assertEquals(
             '{0}/listing_view'.format(collectionblock.absolute_url()),
             browser.url)
-            
+
         self.assertEquals(
             [{'Title': 'Test Page',
               'Creator': 'test-user',
@@ -161,24 +163,25 @@ class TestAddCollectionBlock(FunctionalTestCase):
 
     @browsing
     def test_is_table(self, browser):
-        create(Builder('sl content page').titled(u'Page 2'))
-        create(Builder('sl content page').titled(u'Page 3'))
+        with freeze(datetime(2018, 1, 1, 0, 0)):
+            create(Builder('sl content page').titled(u'Page 2'))
+            create(Builder('sl content page').titled(u'Page 3'))
 
-        create(Builder('sl collectionblock')
-               .titled(u'A collectionblock')
-               .within(self.page)
-               .having(block_amount=2)
-               .with_default_query())
+            create(Builder('sl collectionblock')
+                   .titled(u'A collectionblock')
+                   .within(self.page)
+                   .having(block_amount=2)
+                   .with_default_query())
 
-        browser.login().visit(self.page)
+            browser.login().visit(self.page)
 
-        self.assertEquals(
-            [{'Title': 'Test Page',
-              'Creator': 'test-user',
-              'Type': 'ContentPage',
-              'ModificationDate': browser.css('tbody tr td')[3].text},
-             {'Title': 'Page 2',
-              'Creator': 'test-user',
-              'Type': 'ContentPage',
-              'ModificationDate': browser.css('tbody tr td')[3].text}],
-            browser.css('table.sortable').first.dicts())
+            self.assertEquals(
+                [{'Title': 'Test Page',
+                  'Creator': 'test-user',
+                  'Type': 'ContentPage',
+                  'ModificationDate': browser.css('tbody tr td')[3].text},
+                 {'Title': 'Page 2',
+                  'Creator': 'test-user',
+                  'Type': 'ContentPage',
+                  'ModificationDate': browser.css('tbody tr td')[3].text}],
+                browser.css('table.sortable').first.dicts())
