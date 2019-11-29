@@ -1,12 +1,11 @@
 <registry>
 
-    <record name="plone.types_not_searched"
-            interface="Products.CMFPlone.interfaces.controlpanel.ISearchSchema"
-            field="types_not_searched">
-        <value>
+    <records interface="Products.CMFPlone.interfaces.controlpanel.ISearchSchema"
+             prefix="plone">
+        <value key="types_not_searched" purge="false">
             <element>ftw.collectionblock.CollectionBlock</element>
         </value>
-    </record>
+    </records>
 
     <records prefix="plone.resources/ftw-collectionblock-js"
              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
