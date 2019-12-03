@@ -6,6 +6,7 @@ Changelog
 ------------------
 
 - Fix uninstall profile. [tinagerber]
+- Fix flakiness in test introducing freezer. [busykoala]
 
 
 1.2.1 (2019-11-28)
