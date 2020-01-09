@@ -17,6 +17,9 @@ msgstr ""
 msgid "Date"
 msgstr "Datum"
 
+msgid "ftw.collectionblock.CollectionBlock"
+msgstr "Kollektion"
+
 msgid "getRemoteUrl"
 msgstr "URL"
 

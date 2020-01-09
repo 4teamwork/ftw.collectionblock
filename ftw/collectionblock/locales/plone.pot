@@ -19,3 +19,6 @@ msgstr ""
 
 msgid "Date"
 msgstr ""
+
+msgid "ftw.collectionblock.CollectionBlock"
+msgstr ""
