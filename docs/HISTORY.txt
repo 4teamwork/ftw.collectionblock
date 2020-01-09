@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.3 (unreleased)
+1.2.3 (2020-01-09)
 ------------------
 
 - Add collectionblock portal_type translation to plone domain. [tinagerber]
